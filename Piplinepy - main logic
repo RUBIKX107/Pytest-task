@@ -1,0 +1,15 @@
+import pandas as pd
+
+def load_data():
+    return pd.DataFrame({
+        'name': ['Alice', 'Bob', 'Charlie', None],
+        'age': [25, 30, None, 40],
+        'city': ['NY', 'LA', 'Chicago', 'Miami']
+    })
+
+def clean_data(df):
+    return df.dropna()
+
+def add_age_group(df):
+    df['age_group'] = df['age'].apply(lambda x: 'young' if x < 30 else 'adult')
+    return df
